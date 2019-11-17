@@ -28,7 +28,6 @@ class BbsController extends Controller
     $bbs->save();
     
     return redirect('admin/bbs/create');
-        
     }
     
     public function index(Request $request)
@@ -38,10 +37,8 @@ class BbsController extends Controller
         $posts = Bbs::where('title', $cond_title)->get();
     } else {
         $posts = Bbs::all();
-        
     }
     return view('admin.bbs.index', ['posts' => $posts, 'cond_title' => $cond_title]);
-        
     }
     
     public function edit(Request $request)
@@ -52,7 +49,6 @@ class BbsController extends Controller
         
     }
     return view('admin.bbs.edit', ['bbs_form' => $bbs]);
-        
     }
     
     public function update(Request $request)
@@ -72,7 +68,6 @@ class BbsController extends Controller
         $history->save();
         
         return redirect('admin/bbs/');
-        
     }
     
     public function delete(Request $request)
@@ -80,7 +75,5 @@ class BbsController extends Controller
         $bbs = Bbs::find($request->id);
         $bbs->delete();
         return redirect('admin/bbs/');
-        
     }
-    
 }
