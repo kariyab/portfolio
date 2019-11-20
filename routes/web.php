@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'can:admin-higher']], function () {
     Route::get('bbs/create', 'Admin\BbsController@add');
     Route::post('bbs/create', 'Admin\BbsController@create');
     Route::get('bbs', 'Admin\BbsController@index');
