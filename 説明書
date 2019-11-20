@@ -1,0 +1,19 @@
+/*
+権限(role)
+開発者(1) ＞ 管理者(5 )＞ 一般ユーザー(10)
+
+テスト用ユーザーデータ    database/seeds/UsersTableSeeder.php
+
+開発者権限
+'name' => 'オーナー太郎',
+'email' => 'owner@example.com',
+'password' => bcrypt('otarou'),
+'role' => '1’
+
+一般ユーザー権限
+'name' => 'お客花子',
+'email' => 'customer@example.com',
+'password' => bcrypt('kyakuhana'),
+'role' => '10'
+
+*/
