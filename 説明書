@@ -1,6 +1,6 @@
 /*
 権限(role)
-開発者(1) ＞ 管理者(5 )＞ 一般ユーザー(10)
+開発者(1) ＞ 管理者(5) ＞ 一般ユーザー(10)
 
 テスト用ユーザーデータ    database/seeds/UsersTableSeeder.php
 

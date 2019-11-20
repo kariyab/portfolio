@@ -40,3 +40,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'BbsController@index');
 Route::get('profile', 'ProfileController@index');
+
+Route::get('user', 'UserController@index');
