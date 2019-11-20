@@ -1,5 +1,7 @@
 /*
-権限(role)
+
+権限(role)        app/Providers/AuthServiceProvider.php
+
 開発者(1) ＞ 管理者(5) ＞ 一般ユーザー(10)
 
 テスト用ユーザーデータ    database/seeds/UsersTableSeeder.php
@@ -15,5 +17,12 @@
 'email' => 'customer@example.com',
 'password' => bcrypt('kyakuhana'),
 'role' => '10'
+
+/admin
+管理者用画面として 'role'(5) 以上でログイン中のみアクセス可(現状オーナー太郎のみ)
+
+/user
+(仮)登録者一覧
+テスト用ユーザーデータ、登録したデータの取得確認
 
 */
