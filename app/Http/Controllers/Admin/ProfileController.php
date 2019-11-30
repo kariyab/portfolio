@@ -35,7 +35,7 @@ class ProfileController extends Controller
     {
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
-            $posts = Profile::where('name', $cond_title)->get();
+            $posts = Profile::where('name', 'LIKE', "%{$cond_title}%")->get();
             
         } else {
             $posts = Profile::all();

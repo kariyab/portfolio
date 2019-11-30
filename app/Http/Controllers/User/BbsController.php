@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class BbsController extends Controller
 {
     public function add()
     {
-        return view('admin.bbs.create');
+        return view('bbs.create');
     }
     
     public function create(Request $request)
@@ -27,7 +27,7 @@ class BbsController extends Controller
     $bbs->fill($form);
     $bbs->save();
     
-    return redirect('admin/bbs/create');
+    return redirect('/');
     }
     
     public function index(Request $request)
@@ -38,21 +38,23 @@ class BbsController extends Controller
     } else {
         $posts = Bbs::all();
     }
-    return view('admin.bbs.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+    return view('/', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     public function edit(Request $request)
     {
-    $bbs = Bbs::find($request->id);
-    if (empty($bbs)) {
-        abort(404);
+        $this->authorize('edit', $post);
+        $bbs = Bbs::find($request->id);
+        if (empty($bbs)) {
+            abort(404);
         
     }
-    return view('admin.bbs.edit', ['bbs_form' => $bbs]);
+    return view('/', ['bbs_form' => $bbs]);
     }
     
     public function update(Request $request)
     {
+        $this->authorize('update', $post);
         $this->validate($request, Bbs::$rules);
         $bbs = Bbs::find($request->id);
         
@@ -67,13 +69,14 @@ class BbsController extends Controller
         $history->edited_at = Carbon::now();
         $history->save();
         
-        return redirect('admin/bbs/');
+        return redirect('/');
     }
     
     public function delete(Request $request)
     {
+        $this->authorize('delete', $post);
         $bbs = Bbs::find($request->id);
         $bbs->delete();
-        return redirect('admin/bbs/');
+        return redirect('/');
     }
 }

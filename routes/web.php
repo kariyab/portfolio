@@ -41,4 +41,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'BbsController@index');
 Route::get('profile', 'ProfileController@index');
 
+Route::get('bbs/create', 'User\BbsController@add');
+Route::post('bbs/create', 'User\BbsController@create');
+Route::get('bbs', 'User\BbsController@index');
+
+Route::get('bbs/edit', 'User\BbsController@edit');
+Route::post('bbs/edit', 'User\BbsController@update');
+Route::get('bbs/delete', 'User\BbsController@delete');
+
 Route::get('user', 'UserController@index');
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+    Route::get('myprofile', 'User\ProfileController@add');
+    Route::post('myprofile/edit', 'User\ProfileController@update');
+    Route::get('myprofile/delete', 'User\ProfileController@delete');
+
+});

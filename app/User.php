@@ -15,9 +15,19 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password', 'role',
-    ];
+    
+    protected $guarded = array('id');
+    public static $rules = array(
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'role' => 'required',
+        );
+        
+    //protected $fillable = [
+        //'name', 'email', 'password', 'role',
+    //];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +46,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function profile_histories()
+    {
+      return $this->hasMany('App\Profile_history');
+    }
 }

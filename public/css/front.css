@@ -1,36 +1,39 @@
 body {
-  color: #000;
+  background-color: #efefef;
+  font-size: 14px;
+  color: #333;
+  margin: 0;
 }
 
-.header .logo {
-  width: 120px;
-  height: 82px;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0 0 10px 0;
+  padding: 0;
 }
 
-.headline .caption {
-  position: relative;
-  width: 350px;
+header {
+  margin-top: 20px;
 }
 
-.headline .caption .image img {
-  width: 100%;
+.container {
+  width: 920px;
+  margin: 0 auto 40px auto;
 }
 
-.headline .caption .title {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+.header-title-area {
+  width: 920px;
+  margin: 0 auto 40px auto;
 }
 
-.headline .caption .title h1 {
-  color: #fff;
-  font-size: 1.2em;
+.logo {
+  font-size: 32px;
 }
 
-.headline .caption .body {
-  font-size: 0.8em;
+.text-sub {
+  color: #777;
 }
 
 .posts .post .date {
